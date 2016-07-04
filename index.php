@@ -80,7 +80,12 @@ $countries = array("Франция", "Германия", "Греция", "Сло
 
 <h3> Задание: создать массив из названий 5 стран мира. Вывести массив на экран при помощи print_r внутри тегов PRE</h3>
 
-<pre> <?php print_r($countries); ?> </pre>
+<pre> 
+<?php 
+	print_r($countries); 
+	unset($countries);
+?> 
+</pre>
 
 <!---------------------------------------------------------------------------------------------------------------------->
 
@@ -158,3 +163,44 @@ $galaxy ="Hello Universe";
 ?>
 <!---------------------------------------------------------------------------------------------------------------------->
 
+<h3> Задание: cоздать форму с полями username, email, message. Сериализовать данные, полученные при отправке формы и вывести полученную строку на экран.</h3>
+<a name="question1"></a>
+<form action="index.php" method="GET">
+    <table>
+        <tr>
+            <td>User name</td>
+            <td><input type="text" name="username"></td>
+        </tr>
+        <tr>
+            <td>E-mail</td>
+            <td><input type="email" name="email"></td>
+        </tr>
+        <tr>
+            <td>Message</td>
+            <td><textarea name="message"></textarea></td>
+        </tr>
+        <tr><td colspan="2"><input type="submit"></td></tr>
+    </table>
+</form>
+
+<?php 
+	if ($_GET != NULL)
+	{
+	echo $str = serialize($_GET);
+	}
+?>
+
+<!---------------------------------------------------------------------------------------------------------------------->
+
+<h3> Задание: вычислить количество секунд в году и присвоить это значение переменной. Вычислить остаток от деления этого значения на 2</h3>
+<?php
+
+$second_in_year = 365 * 24 * 60 * 60;
+$second_in_leap_year = 366 * 24 * 60 * 60;
+
+echo "Секунд в году $second_in_year <br>";
+echo "Деления секунд в году на 2 дает остаток - " . $modulo = $second_in_year % 2 . "<br>";
+echo "<br>Секунд в высокосном году $second_in_leap_year <br>";
+echo "Деления секунд в году на 2 дает остаток - " . $modulo = $second_in_leap_year % 2;
+
+?>
