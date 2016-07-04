@@ -13,14 +13,14 @@ $books = array(
         'price' => 4.40
     ),
 
-    $book_1 = array(
+    $book_2 = array(
         'title' => 'Легенда об Уленшпигеле',
         'author' => 'Шарль де Костер',
         'year' => '1983',
         'price' => 2.40
     ),
 
-    $book_1 = array(
+    $book_3 = array(
         'title' => 'От двух до пяти',
         'author' => 'Корней Чуковский',
         'year' => '1988',
