@@ -8,7 +8,17 @@ class User
 	public $password;
 	public $email;
 	public $rating = 0;
+	
+	public function login()
+	{
+		echo $this->login.' - вы залогинены';
 	}
+		
+	public function logout()
+	{ 
+		echo $this->login.' - вы не залогинены';
+	}
+}
 
 /*Создать класс Car. Записать в этот класс свойства brand, model, year, driver. Создать экземпляры машин Toyota Corolla (2000), Mazda 6 (2015), Ford Taurus (1995) . В рамках предыдущего задания создать экземпляры класса User для нескольких пользователей системы. В свойство driver объектов класса Car записать объекты класса User. Вывести объекты класса Car на экран при помощи var_dump(), print_r()*/
 
@@ -78,3 +88,10 @@ $driver_vova->email = 'zzz@zzz.zz';
 	echo '</pre>';
 ?>
 </td></tr></table>
+
+<?php
+	
+	echo '<br>';
+	$driver_alex->login();
+	echo '<br>';
+	$driver_vova->logout();
