@@ -1,26 +1,17 @@
 <?php
-
-function __autoload($className)
+function __autoload($className) // 'Car.php'
 {
-	require $className.'.php';
+    require "{$className}.php";
 }
-
-//создаем экземпляры класса Books
-$book_1 = new Books('Три мушкетера', 'Александр Дюма', '1991', 35);
-$book_2 = new Books('Легенда об Уленшпигеле', 'Шарль де Костер', '1983', 24);
-$book_3 = new Books('От двух до пяти', 'Корней Чуковский', '1988', 5);
-
-//выводим их на экран в цикле
-echo '<pre>';
-
-	for ($i=1; $i<4; $i++)
-	  {
-		$q = 'book_'.$i;
-		var_dump($$q);
-		echo '<br><br>';
-		print_r($$q);
-	  }
-  
-echo '</pre>';
-
-?>
+$request = new Request();
+$form = new Form($request);
+$msg = $request->get('flash_msg'); // $_GET['username']
+if ($request->isPost()) {
+    if ($form->isValid()) {
+        // bla-bla
+        header('Location: /?flash_msg=valid');
+        die;
+    }
+    $msg = 'invalid';
+}
+require 'layout.phtml';
