@@ -1,0 +1,14 @@
+<h1>Contact Form</h1>
+<b><?=$msg?></b>
+
+<form method="post">
+
+    Username: <input type="text" name="username" value="<?=$form->username?>"> <br>
+    Email <input type="email" name="email" value="<?=$form->email?>"><br>
+
+    Message:
+    <textarea name="message" placeholder="Type a message..."><?=$form->message?></textarea>
+
+
+    <button>Submit</button>
+</form>
