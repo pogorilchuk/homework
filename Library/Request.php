@@ -13,9 +13,9 @@ class Request
     {
         return isset($this->post[$key]) ? $this->post[$key] : null;
     }
-    public function get($key)
+    public function get($key, $default_key = "index/index")
     {
-        return isset($this->get[$key]) ? $this->get[$key] : null;
+        return isset($this->get[$key]) ? $this->get[$key] : $default_key;
     }
     public function isPost()
     {

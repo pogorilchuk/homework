@@ -7,7 +7,7 @@ define('MODEL_DIR', ROOT . 'Model' . DS);
 define('LIB_DIR', ROOT . 'Library' . DS);
 
 
-function __autoload($className) // 'Car.php'
+function __autoload($className)
 {
     $file = "{$className}.php";
 
@@ -25,9 +25,6 @@ function __autoload($className) // 'Car.php'
 $request = new Request();
 $route = $request->get('route'); // $_GET['route']
 
-if (empty($route)) {
-    $route = 'index/index';
-}
 // todo: possible bugs with '/' ??
 $route = explode('/', $route);
 
