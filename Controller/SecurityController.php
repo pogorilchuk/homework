@@ -16,7 +16,7 @@ class SecurityController extends Controller
         }
         
         $args = compact('form', 'msg');
-        
+
         return $this->render('login', $args);
     }
 

@@ -10,6 +10,11 @@ class BookModel
 {
     public function findAll()
     {
+        $db = DbConnection::getInstance()->getPdo();
+        $sth = $db->query('SELECT * FROM book');
+        $sth->execute();
+        $book = $sth->fetchAll(PDO::FETCH_ASSOC);
+
         return $books = array(
             array(
                 'title' => 'rtert',
