@@ -1,8 +1,9 @@
 <h1>Books list</h1>
 
-<?php foreach ($books as $book): ?>
+<?php foreach ($books as $id=>$book): ?>
     <?=$book['title']?> <br>
     <?=$book['price']?> <br>
     <?=$book['author']?> <br>
+    <a href="index.php?route=book/show&id=<?=$id?>">Detail</a>
     <hr>
 <?php endforeach?>

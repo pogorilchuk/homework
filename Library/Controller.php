@@ -23,7 +23,7 @@ abstract class Controller
         return ob_get_clean();
     }
 
-    public static function renderError($message)
+    public static function renderError($message, $code)
     {
         ob_start();
         require VIEW_DIR . DS . 'error.phtml';

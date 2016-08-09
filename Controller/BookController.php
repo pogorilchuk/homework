@@ -16,5 +16,16 @@ class BookController extends Controller
         return $this->render('index', array('books' => $books));
     }
 
+    public function showAction(Request $request)
+    {
+        $id = $request->get('id');
 
+        $bookModel = new BookModel();
+        $book = $bookModel->find($id);
+
+        $args = array(
+            'book' => $book
+        );
+        return $this->render('show', $args);
+    }
 }

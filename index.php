@@ -41,8 +41,11 @@ try {
     }
 
     $content = $controller->$action($request);
-} catch (Exception $e) {
-    $content = Controller::renderError($e->getMessage());
+} catch (NotFoundException $e) {
+    $content = Controller::renderError($e->getMessage(), $e->getCode());
+}
+catch (Exception $e) {
+    $content = Controller::renderError($e->getMessage(), $e->getCode());
 }
 require VIEW_DIR . 'default_layout.phtml';
 
