@@ -18,27 +18,32 @@ function __autoload($className)
     } elseif (file_exists(MODEL_DIR . $file)) {
         require MODEL_DIR . $file;
     } else {
-        die("{$file} not found");
+        throw new Exception("{$file} not found", 404);
     }
 }
 
-$request = new Request();
-$route = $request->get('route'); // $_GET['route']
+try {
+
+
+    $request = new Request();
+    $route = $request->get('route'); // $_GET['route']
 
 // todo: possible bugs with '/' ??
-$route = explode('/', $route);
+    $route = explode('/', $route);
 
-$controller = ucfirst($route[0]) . 'Controller';
-$action = $route[1] . 'Action';
+    $controller = ucfirst($route[0]) . 'Controller';
+    $action = $route[1] . 'Action';
 
-$controller = new $controller();
+    $controller = new $controller();
 
-if (!method_exists($controller, $action)) {
-    die("{$action} not found");
+    if (!method_exists($controller, $action)) {
+        throw new Exception("{$action} not found", 404);
+    }
+
+    $content = $controller->$action($request);
+} catch (Exception $e) {
+    $content = Controller::renderError($e->getMessage());
 }
-
-$content = $controller->$action($request);
-
 require VIEW_DIR . 'default_layout.phtml';
 
 
